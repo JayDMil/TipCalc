@@ -6,9 +6,9 @@
     <color name="purple_700">#FF3700B3</color>
     <color name="teal_200">#FF03DAC5</color>
     <color name="teal_700">#FF018786</color>
-    <color name="tip_poor">#FF0000</color>
-    <color name="tip_acceptable">#FFa500</color>
-    <color name="tip_good">#FFFF00</color>
-    <color name="tip_great">#00FF00</color>
-    <color name="tip_amazing">#0000FF</color>
+    <color name="tip_poor">#C62828</color>
+    <color name="tip_acceptable">#EF6C00</color>
+    <color name="tip_good">#689F38</color>
+    <color name="tip_great">#2E7D32</color>
+    <color name="tip_amazing">#1565C0</color>
 </resources>

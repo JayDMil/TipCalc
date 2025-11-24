@@ -68,7 +68,7 @@
     <TextView
         android:id="@+id/tvTipDescription"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android.layout_height="wrap_content"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="@id/tvTipPercentage"
@@ -115,5 +115,13 @@
         app:layout_constraintBaseline_toBaselineOf="@id/tvTotalLabel"
         app:layout_constraintEnd_toEndOf="parent"
         tools:text="$141.97" />
+        
+    <com.google.android.material.materialswitch.MaterialSwitch
+        android:id="@+id/themeSwitch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/dark_mode"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

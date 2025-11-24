@@ -27,14 +27,13 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
-        setContentView(R.layout.activity_main)
+        
+        // Theme switch logic, Apply before setting content view
+        val sharedPreferences = getSharedPreferences("ThemePrefs", Context.MODE_PRIVATE)
+        val isDarkMode = sharedPreferences.getBoolean("isDarkMode", false)
+        applyTheme(isDarkMode)
 
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-            insets
-        }
+        setContentView(R.layout.activity_main)
 
         // Initialize UI elements
         getBillAmount = findViewById(R.id.getBillAmount)
@@ -44,6 +43,9 @@ class MainActivity : AppCompatActivity() {
         tvTotalAmount = findViewById(R.id.tvTotalAmount)
         tvTipDescription = findViewById(R.id.tvTipDescription)
         themeSwitch = findViewById(R.id.themeSwitch)
+
+        // Set switch state without triggering listener
+        themeSwitch.isChecked = isDarkMode
 
         // Set initial values
         updateTipUI(seekBarTip.progress)
@@ -69,12 +71,6 @@ class MainActivity : AppCompatActivity() {
                 computeTipAndTotal()
             }
         })
-
-        // Theme switch logic
-        val sharedPreferences = getSharedPreferences("ThemePrefs", Context.MODE_PRIVATE)
-        val isDarkMode = sharedPreferences.getBoolean("isDarkMode", false)
-        themeSwitch.isChecked = isDarkMode
-        applyTheme(isDarkMode)
 
         themeSwitch.setOnCheckedChangeListener { _, isChecked ->
             applyTheme(isChecked)
